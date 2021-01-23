@@ -10,14 +10,14 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import orderRouter from './routes/orderRouter.js';
 
-import {Payouts}   from 'cashfree-sdk';
+//import {Payouts}   from 'cashfree-sdk';
 // const { Payouts } = require('./cashfree-sdk');
 
  
 dotenv.config();
 
 // Instantiate Cashfree Payouts
-const payoutsInstance = new Payouts({
+/* const payoutsInstance = new Payouts({
 	env: 'TEST',
 	clientId: '3021804476e41d8422a2cb5f681203',
 	clientSecret: '64b9b4cbf93b5dbb6b12cd1e59a28436634804bd',
@@ -44,7 +44,7 @@ const payoutsInstance = new Payouts({
 	  console.error(e);
 	}
   }
-
+*/
 //console.log("dddddddddddd",payoutsInstance);
 
 
