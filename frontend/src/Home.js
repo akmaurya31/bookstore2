@@ -32,6 +32,7 @@ import NotFound from './NotFound';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SearchScreen from "./screen/SearchScreen";
+//mport SearchBox from './components/SearchBox';
 
 let kk=429;
 const Home = () => {
@@ -52,7 +53,7 @@ const Home = () => {
 
    {/* <NavBar   onChange={alert("sdfadsf")}  /> */}
   <Sidebar />
-     <Switch>
+  <Switch>
 <Route exact path="/Admin" component={Dashboard} />
 <Route exact path="/Addbook" component={Addbook} />
 <Route exact path="/Listbook" component={Listbook} />
@@ -71,18 +72,19 @@ const Home = () => {
 {/*<Route exact path="/Profile" component={Profile} /> */}
 <Route exact path="/Orderlist" component={Orderlist} />
 
-<Route
+
+{/* <Route
             path="/booklist/key/:textname?"
             component={HomeScreen}
             exact
-          ></Route>
+          ></Route> */}
 
-{/* <Route
+{ <Route
             path="/search/name/:name?"
             component={SearchScreen}
             exact
           ></Route>
-
+/*
 <Route
             path="/search/category/:category"
             component={SearchScreen}
@@ -93,14 +95,16 @@ const Home = () => {
             component={SearchScreen}
             exact
           ></Route> */}
-
 <Route component={NotFound} />
     </Switch>
+
 <PrivateRoute
             path="/profile"
             component={Profile}
           ></PrivateRoute>
  <Footer /> 
+
+ {/* <Route component={NotFound} /> */}
     </>
   
 
