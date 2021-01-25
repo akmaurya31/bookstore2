@@ -7,18 +7,13 @@ import MessageBox from '../components/MessageBox';
 import Product from '../components/Product';
 
 export default function SearchScreen(props) {
-  const { name = 'all' , category = 'all'} = useParams();
+  const { name = 'all' } = useParams();
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
   useEffect(() => {
-    dispatch(
-        listProducts({
-          name: name !== 'all' ? name : '',
-          category: category !== 'all' ? category : '',
-        })
-      );
-    }, [category, dispatch, name]);
+    dispatch(listProducts({ name: name !== 'all' ? name : '' }));
+  }, [dispatch, name]);
   return (
       <>
       <style jsx>{`
@@ -32,7 +27,7 @@ export default function SearchScreen(props) {
       }
      
     `}</style>
-    <div>
+    <div className="container">
       <div className="row">
         {loading ? (
           <LoadingBox></LoadingBox>
@@ -45,9 +40,7 @@ export default function SearchScreen(props) {
       <div className="row top">
         <div className="col-1">
           <h3>Department</h3>
-          <ul>
-            <li>Categoey 1</li>
-          </ul>
+          
         </div>
 
 
