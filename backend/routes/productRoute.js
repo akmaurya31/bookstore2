@@ -28,7 +28,7 @@ router.get("/", async(req, res)=>{
   const bbindAr = req.query.bbind || '';
 
   const bsearchStr = req.query.bsearch || '';
-  console.log("MyCategoryisSearch-------"+bsearchStr);
+  //console.log("MyCategoryisSearch-------"+bsearchStr);
   //let Arrcate=explode(",",categoryAr);
   let Arrcate = categoryAr.split(","); 
   let Arrblang = bblanguageAr.split(","); 
@@ -68,6 +68,7 @@ if(bsearchStr!=''){
 //console.log("i am insidessssssssssssssssssssssssssssssss of get request22222",categoryFilter)
 //console.log(products)
     res.send(products);
+  //  console.log("search filter", products)
 })
 
 // router.get("/:id", async(req, res)=>{
