@@ -27,6 +27,7 @@ import PrivateRoute from './components/PrivateRoute';
 import Userlist from "./components/Admin/Userlist";
 import Viewreview from "./components/Admin/Viewreview";
 import Orderlist from "./components/Admin/Orderlist";
+import NotFound from './NotFound';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -51,7 +52,7 @@ const Home = () => {
 
    {/* <NavBar   onChange={alert("sdfadsf")}  /> */}
   <Sidebar />
-    
+     <Switch>
 <Route exact path="/Admin" component={Dashboard} />
 <Route exact path="/Addbook" component={Addbook} />
 <Route exact path="/Listbook" component={Listbook} />
@@ -93,7 +94,8 @@ const Home = () => {
             exact
           ></Route> */}
 
-
+<Route component={NotFound} />
+    </Switch>
 <PrivateRoute
             path="/profile"
             component={Profile}
