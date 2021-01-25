@@ -1,4 +1,4 @@
-import React, { useEffect , useState,useRef} from 'react';
+import React, { useEffect , useState} from 'react';
 import Axios from 'axios';
 import { PayPalButton } from 'react-paypal-button-v2';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,33 +12,6 @@ import { userDetailsReducer } from '../reducers/userReducers';
 export default function OrderScreen(props) {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
-
-  const formRef = useRef(null);
-
-  // const formRef = useRef<HTMLFormElement>(null);
-
-  const handleSubmit = () => {
-    //event.preventDefault();
-    alert('You have submitted the form.')
-    // document.getElementById('contact_form').submit();
-  }
-  useEffect(() => {
-   // formRef.current.submit();
-
-    handleSubmit();
-    const contact_form = document.getElementById("zorder").submit();
-    alert(contact_form)
-   // document.getElementById("email").value = "Johnny Bravo";
-    //var sds= document.getElementById("zorder").value();
-    //alert(sds)
-
-    // Update the document title using the browser API
-    //document.title = `You clicked ${count} times`;
-   // alert("asdfasdf");
-  });
-
-
-  console.log("Order Page --------llllllllllllllll",userInfo)
 
   const orderId = props.match.params.id;
   const [sdkReady, setSdkReady] = useState(false);
@@ -57,7 +30,7 @@ export default function OrderScreen(props) {
       };
       document.body.appendChild(script);
     };
-    iformRef.current.submit();f (!order) {
+    if (!order) {
       dispatch(detailsOrder(orderId));
     } else {
       if (!order.isPaid) {
@@ -203,13 +176,9 @@ export default function OrderScreen(props) {
               )}
             </ul>
 
-
-
-            
-
            
 
-      <form method="get"  ref={formRef} onSubmit={handleSubmit} action="https://bfcpublications.com/paymentRequestnode" id="contact_form" acceptCharset="UTF-8" className="contact-form">
+      <form method="get" action="https://bfcpublications.com/paymentRequestnode" id="contact_form" acceptCharset="UTF-8" className="contact-form">
         <input type="text" name="_token" defaultValue="2kMw2kanaq5bwDlsHBE3nrpycBkcS0J4iYJ5y7EB" />            <div className="form-group">
           {/*<label>App ID:</label><br>*/}
           {/*<input type="hidden" class="form-control" name="appId" placeholder="Enter App ID here (Ex. 123456a7890bc123defg4567)" value="29787295c06f7f0b7dab18a0678792"/>*/}
@@ -244,16 +213,16 @@ export default function OrderScreen(props) {
         <div className="form-group">
           <label><b>Name:</b></label><br />
           <input className="form-control" name="customerName" placeholder="Enter your name here" title="Name with a-z and A-Z" 
-          value={userInfo.name}
+          value="agam"
           required />
         </div>
         <div className="form-group">
           <label><b>Email:</b></label><br />
-          <input className="form-control" name="customerEmail" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Enter your email address here" title="Email Id with a-z,A-Z,any No and remaing @gmail.com,@yahoo.com etc"  value={userInfo.email} required />
+          <input className="form-control" name="customerEmail" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Enter your email address here" title="Email Id with a-z,A-Z,any No and remaing @gmail.com,@yahoo.com etc" required />
         </div>
         <div className="form-group">
           <label><b>Phone:</b></label><br />
-          <input type="text" className="form-control" name="customerPhone" placeholder="Enter your phone number here"  value={userInfo.mobile}   />
+          <input type="text" className="form-control" name="customerPhone" placeholder="Enter your phone number here" pattern="[789][0-9]{9}" maxLength={10} required />
           {/*<input type="text" name="Phone Number" pattern="[7-9]{1}[0-9]{9}" 
                   title="Phone number with 7-9 and remaing 9 digit with 0-9" placeholder="Enter your phone no here" required>*/}
         </div>
@@ -267,8 +236,7 @@ export default function OrderScreen(props) {
                </div>*/}
         <div className="row">
           <div className="col-md-6"><div className="col-md-6"><button className="btn btn-primary btn-block" onclick="goBack()">Go Back</button></div></div>
-    <div className="col-md-6">
-      <button type="submit" id="zorder" name="zorder" className="btn btn-primary btn-block" value="Pay">Place Your Order</button></div>
+    <div className="col-md-6"><button type="submit" className="btn btn-primary btn-block" value="Pay">Place Your Order</button></div>
         </div>
         <br /> 
         <br />
