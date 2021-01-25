@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import AOS from 'aos';
 
-import {  Route } from 'react-router-dom';
+import {  Route, Switch } from 'react-router-dom';
 import HomeScreen from './screen/HomeScreen';
 import SigninScreen from './screen/SigninScreen';
 import ProductScreen from './screen/ProductScreen';
