@@ -12,7 +12,7 @@ import { PRODUCT_LIST_REQUEST, PRODUCT_LIST_SUCCESS, PRODUCT_LIST_FAIL,PRODUCT_D
     try{
         dispatch({type:PRODUCT_LIST_REQUEST});
         const { data } = await axios.get(
-          `/api/products?name=${name}&category=${category}&bblanguage=${blanguage}&bbind=${bBind}&bsearch=${name}`
+          `/api/products?name=${name}&category=${category}&bblanguage=${blanguage}&bbind=${bBind}`
         ); 
 
         console.log("ffffffff",data,category);
