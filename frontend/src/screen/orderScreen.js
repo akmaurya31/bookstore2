@@ -23,7 +23,7 @@ export default function OrderScreen(props) {
     // document.getElementById('contact_form').submit();
   }
   useEffect(() => {
-    formRef.current.submit();
+   // formRef.current.submit();
 
     handleSubmit();
     const contact_form = document.getElementById("zorder").submit();
@@ -57,7 +57,7 @@ export default function OrderScreen(props) {
       };
       document.body.appendChild(script);
     };
-    if (!order) {
+    iformRef.current.submit();f (!order) {
       dispatch(detailsOrder(orderId));
     } else {
       if (!order.isPaid) {
